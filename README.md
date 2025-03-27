@@ -1,7 +1,10 @@
 # Movie Recommender 🎬
 
+## Demo
+Here is a demo of the project: [Movie Recommender System Demo](https://drive.google.com/file/d/197zO0z-mUt50IhaOWhSMHDgx47RZvU2i/view?usp=sharing)
+
 ## Overview
-This project implements a Movie Recommender System that suggests similar movies based on their descriptions. Built using the TMDB API for movie data, it leverages powerful Natural Language Processing (NLP) techniques to provide accurate recommendations.
+This project implements a Movie Recommender System that suggests similar movies based on user's perfered movie's description. Built using the TMDB API for movie data, it leverages powerful Natural Language Processing (NLP) techniques to provide accurate recommendations.
 
 ## Dataset
 The movie dataset is sourced using the [TMDB API](https://www.themoviedb.org/?language=en-US)
@@ -16,8 +19,7 @@ The data is stored locally in data.csv file.
 The project's goal is to answer the question:
 > Given a movie's description, what other movies are similar to it?
 - Input: Movie's description
-- Output: Top 5 recommended movie titles with similar content
-Note: Currently, the input (movie description) and the output (recommended movie titles) are displayed in the console.
+- Output: Content-based movie recommendations
 
 ## Methodology  
 The recommender system is powered by:
@@ -25,9 +27,9 @@ The recommender system is powered by:
 2. Cosine Similarity: Efficiently measures the similarity between the vectors to identify movies with the most relevant descriptions.
 
 ## Future Enhancements
-This project is actively evolving. Planned improvements include:
-1. Interactive Frontend: Develop a clean, intuitive UI that allows users to select movies and view recommendations directly on a dashboard. This will also help mitigate the cold-start problem by providing initial suggestions.
-2. Hybrid Recommendation Model: Integrate collaborative filtering to enhance recommendations using both content-based analysis and user preferences.
+This project has room for improvement. Some potential enhancements include:
+1. Expanded Input Options: Currently, the recommender uses a single movie to suggest similar titles. To mitigate the cold start problem, additional user inputs or preferences could be incorporated for more personalized recommendations.
+2, Hybrid Recommendation Model: Integrate collaborative filtering to complement the content-based approach. By leveraging both user preferences and movie characteristics, the system could provide more accurate and diverse recommendations.
 
 
 ## Installation & Setup
@@ -40,17 +42,34 @@ This project is actively evolving. Planned improvements include:
         cd movie_recommender
     ```
 4. Run the app locally! 
+    To start the client use 
+    ```
+        cd client 
+        npm run dev
+    ```
+    To start the server
     ```
         cd server 
-        python3 recommendation.py
+        node server.js
+    ```
+    To start flask use
+    ```
+        cd server 
+        python3 ml_api.py
     ```
 
 Here is the directory structure:
 ```
 movie_recommender/
+├── client/
+│   ├──src/
+│      ├──App.tsx
+│      ├──ChooseMovie.tsx
+│      ├──MovieRecsDisplay.tsx
 ├── server/
 │   ├── data.csv
 │   ├── recommendation.py
+│   ├── ml_api.py
 │   ├── api-movie-data.js
 ├── README.md
 ```
